@@ -1,11 +1,10 @@
 package com.pdomingo.order.domain.adapter.usecase;
 
 import com.pdomingo.order.domain.adapter.service.ProductService;
-import com.pdomingo.order.domain.model.Product;
 import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
-import com.pdomingo.order.domain.port.primary.usecase.AddShoppingCartItem;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.AddShoppingCartItem;
 import com.pdomingo.order.domain.port.secondary.ShoppingCartRepository;
 import com.pdomingo.order.infrastructure.web.mapper.ShoppingCartMapper;
 import com.pdomingo.order.infrastructure.web.model.ShoppingCartView;
@@ -19,7 +18,7 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class AddShoppingCartItemAdapter implements AddShoppingCartItem {
+public class AddShoppingCartItemUseCase implements AddShoppingCartItem {
 
     private final ProductService productService;
     private final ShoppingCartRepository shoppingCartRepository;

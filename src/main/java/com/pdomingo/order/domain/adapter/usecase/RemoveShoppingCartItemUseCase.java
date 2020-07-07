@@ -3,7 +3,7 @@ package com.pdomingo.order.domain.adapter.usecase;
 import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
-import com.pdomingo.order.domain.port.primary.usecase.RemoveShoppingCartItem;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.RemoveShoppingCartItem;
 import com.pdomingo.order.domain.port.secondary.ShoppingCartRepository;
 import com.pdomingo.order.infrastructure.web.mapper.ShoppingCartMapper;
 import com.pdomingo.order.infrastructure.web.model.ShoppingCartView;
@@ -31,7 +31,11 @@ public class RemoveShoppingCartItemAdapter implements RemoveShoppingCartItem {
                 .orElseThrow(IllegalStateException::new);
         shoppingCart.removeProduct(productId);
 
-        shoppingCartRepository.save(shoppingCart);
+        if (shoppingCart.products().isEmpty()) {
+            shoppingCartRepository.delete(shoppingCart.id());
+        } else {
+            shoppingCartRepository.save(shoppingCart);
+        }
 
         shoppingCart.eventLog().forEach(eventService::send);
 
