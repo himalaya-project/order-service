@@ -1,0 +1,36 @@
+
+syntax = "proto3";
+
+option java_package = "com.pdomingo.events.catalog";
+option java_outer_classname = "CatalogEvents";
+
+message OrderBookingPrepareCommand {
+    string orderId = 1;
+    string clientId = 2;
+    repeated string productIds = 3;
+}
+
+message OrderBookingCancelCommand {
+    string orderId = 1;
+    string clientId = 2;
+
+    repeated string productIds = 3;
+}
+
+message OrderBookingSucceededEvent {
+    string orderId = 1;
+    string clientId = 2;
+    repeated string productIds = 3;
+}
+
+message OrderBookingFailedEvent {
+    string orderId = 1;
+    string clientId = 2;
+
+    FailureCode failureCode = 4;
+    string failureReason = 5;
+
+    enum FailureCode {
+        NO_STOCK_AVAILABLE = 0;
+    }
+}

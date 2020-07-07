@@ -1,7 +1,8 @@
 package com.pdomingo.order.domain.adapter.usecase;
 
+import com.pdomingo.order.domain.exception.ShoppingCartNotFound;
 import com.pdomingo.order.domain.model.ids.ClientId;
-import com.pdomingo.order.domain.port.primary.usecase.FetchShoppingCart;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.FetchShoppingCart;
 import com.pdomingo.order.domain.port.secondary.ShoppingCartRepository;
 import com.pdomingo.order.infrastructure.web.mapper.ShoppingCartMapper;
 import com.pdomingo.order.infrastructure.web.model.ShoppingCartView;
@@ -21,6 +22,6 @@ public class FetchShoppingCartAdapter implements FetchShoppingCart {
         log.info("Fetching active shopping cart for client <{}>", clientId);
         return shoppingCartRepository.findActiveByClientId(clientId)
                 .map(ShoppingCartMapper::toView)
-                .orElseThrow();
+                .orElseThrow(() -> new ShoppingCartNotFound().with("clientId", clientId));
     }
 }

@@ -1,6 +1,6 @@
 package com.pdomingo.order.infrastructure.web.mapper;
 
-import com.pdoming.kernel.core.ddd.DelegatedIdentifier;
+import com.pdomingo.kernel.core.ddd.DelegatedIdentifier;
 import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.infrastructure.web.model.ShoppingCartView;
 

@@ -1,5 +1,6 @@
 package com.pdomingo.order.domain.adapter.event;
 
+import com.pdomingo.events.client.ClientEvents;
 import com.pdomingo.order.domain.event.outgoing.ClientRegisteredEvent;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.port.primary.event.ClientRegisteredEventHandler;
@@ -16,9 +17,9 @@ public class ClientRegisteredEventHandlerAdapter implements ClientRegisteredEven
 	private final ClientRepository clientRepository;
 
 	@Override
-	public void onClientRegisteredEvent(ClientRegisteredEvent event) {
+	public void onClientRegisteredEvent(ClientEvents.ClientRegisteredEvent event) {
 
-		ClientId clientId = event.getSourceId();
+		ClientId clientId = event.sourceId();
 
 		log.info("Registering new client <{}> on database", clientId);
 	}

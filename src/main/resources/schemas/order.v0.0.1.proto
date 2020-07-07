@@ -1,0 +1,31 @@
+
+syntax = "proto3";
+
+option java_package = "com.pdomingo.events.order";
+option java_outer_classname = "OrderEvents";
+
+message OrderCreatedEvent {
+    string orderId = 1;
+    uint64 timestamp = 2;
+    string clientId = 3;
+}
+
+message OrderCanceledEvent {
+    string orderId = 1;
+    uint64 timestamp = 2;
+    string clientId = 3;
+}
+
+message ShoppingCartItemAddedEvent {
+    string shoppingCartId = 1;
+    uint64 timestamp = 2;
+    string clientId = 3;
+    string productId = 4;
+}
+
+message ShoppingCartItemRemovedEvent {
+    string shoppingCartId = 1;
+    uint64 timestamp = 2;
+    string clientId = 3;
+    string productId = 4;
+}

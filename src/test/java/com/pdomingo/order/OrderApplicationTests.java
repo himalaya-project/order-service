@@ -1,11 +1,10 @@
-package com.pdomingo.client;
+package com.pdomingo.order;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-@SpringBootConfiguration
 class OrderApplicationTests {
 
 	@Test

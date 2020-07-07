@@ -1,8 +1,8 @@
 package com.pdomingo.order.domain.model;
 
-import com.pdoming.kernel.core.ddd.AggregateRoot;
-import com.pdomingo.order.domain.event.outgoing.ShoppingCartItemAddedEvent;
-import com.pdomingo.order.domain.event.outgoing.ShoppingCartItemRemovedEvent;
+import com.pdomingo.kernel.core.ddd.AggregateRoot;
+import com.pdomingo.order.domain.event.ShoppingCartItemAddedEvent;
+import com.pdomingo.order.domain.event.ShoppingCartItemRemovedEvent;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
 import com.pdomingo.order.domain.model.ids.ShoppingCartId;

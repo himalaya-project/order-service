@@ -1,6 +1,6 @@
 package com.pdomingo.order.domain.model;
 
-import com.pdoming.kernel.core.vobjects.Address;
+import com.pdomingo.kernel.core.vobjects.Address;
 import com.pdomingo.order.domain.model.ids.ClientId;
 
 public class Client {

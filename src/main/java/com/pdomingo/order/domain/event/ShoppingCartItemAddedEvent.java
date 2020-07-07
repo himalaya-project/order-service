@@ -1,7 +1,6 @@
-package com.pdomingo.order.domain.event.outgoing;
+package com.pdomingo.order.domain.event;
 
 import com.pdomingo.kernel.core.ddd.BaseDomainEvent;
-import com.pdomingo.kernel.core.ddd.DomainEvent;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
 import com.pdomingo.order.domain.model.ids.ShoppingCartId;
@@ -18,5 +17,13 @@ public class ShoppingCartItemAddedEvent extends BaseDomainEvent<ShoppingCartId> 
         this.clientId = clientId;
         this.productId = productId;
         this.timestamp = Instant.now();
+    }
+
+    public ClientId clientId() {
+        return clientId;
+    }
+
+    public ProductId productId() {
+        return productId;
     }
 }

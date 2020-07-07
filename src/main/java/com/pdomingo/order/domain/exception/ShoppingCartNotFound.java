@@ -1,4 +1,4 @@
 package com.pdomingo.order.domain.exception;
 
-public class ShoppingCartNotFound {
+public class ShoppingCartNotFound extends OrderDomainException {
 }

@@ -1,5 +1,6 @@
 package com.pdomingo.order.domain.adapter.usecase;
 
+import com.pdomingo.order.domain.exception.ShoppingCartNotFound;
 import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
@@ -17,7 +18,7 @@ import java.util.Objects;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class RemoveShoppingCartItemAdapter implements RemoveShoppingCartItem {
+public class RemoveShoppingCartItemUseCase implements RemoveShoppingCartItem {
 
     private final ShoppingCartRepository shoppingCartRepository;
     private final EventService eventService;
@@ -28,7 +29,7 @@ public class RemoveShoppingCartItemAdapter implements RemoveShoppingCartItem {
         Objects.requireNonNull(productId);
 
         ShoppingCart shoppingCart = shoppingCartRepository.findActiveByClientId(clientId)
-                .orElseThrow(IllegalStateException::new);
+                .orElseThrow(() -> new ShoppingCartNotFound().with("clientId", clientId));
         shoppingCart.removeProduct(productId);
 
         if (shoppingCart.products().isEmpty()) {

@@ -1,13 +1,11 @@
 package com.pdomingo.order.infrastructure.web;
 
-import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ProductId;
-import com.pdomingo.order.domain.port.primary.usecase.AddShoppingCartItem;
-import com.pdomingo.order.domain.port.primary.usecase.DeleteShoppingCart;
-import com.pdomingo.order.domain.port.primary.usecase.FetchShoppingCart;
-import com.pdomingo.order.domain.port.primary.usecase.RemoveShoppingCartItem;
-import com.pdomingo.order.infrastructure.web.mapper.ShoppingCartMapper;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.AddShoppingCartItem;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.DeleteShoppingCart;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.FetchShoppingCart;
+import com.pdomingo.order.domain.port.primary.usecase.shopping_cart.RemoveShoppingCartItem;
 import com.pdomingo.order.infrastructure.web.model.ShoppingCartView;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;

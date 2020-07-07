@@ -17,7 +17,7 @@ public class ClientUnregisteredEventHandlerAdapter implements ClientUnregistered
 
     @Override
     public void onClientUnregisteredEvent(ClientUnregisteredEvent event) {
-        ClientId clientId = event.getSourceId();
+        ClientId clientId = event.sourceId();
 
         shoppingCartRepository.deleteAllFrom(clientId);
     }

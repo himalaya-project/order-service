@@ -1,6 +1,6 @@
 package com.pdomingo.order.domain.port.secondary;
 
-import com.pdoming.kernel.core.ddd.Repository;
+import com.pdomingo.kernel.core.ddd.Repository;
 import com.pdomingo.order.domain.model.ShoppingCart;
 import com.pdomingo.order.domain.model.ids.ClientId;
 import com.pdomingo.order.domain.model.ids.ShoppingCartId;
